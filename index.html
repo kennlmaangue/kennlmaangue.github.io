@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenn | Healthcare Insurance & Virtual Assistant</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f4f7f7, #101515);
+  --surface: light-dark(#ffffff, #182020);
+  --surface-2: light-dark(#eef4f3, #202b2b);
+  --text: light-dark(#172323, #edf4f3);
+  --muted: light-dark(#61706f, #a9b8b6);
+  --line: light-dark(#dbe4e2, #30403f);
+  --accent: light-dark(#176b68, #6fc6bf);
+  --accent-soft: light-dark(#dcefed, #173d3b);
+  --shadow: 0 18px 45px rgba(20, 55, 53, .10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.root { min-height: 100vh; background: var(--bg); }
+a { color: inherit; }
+.container { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom: 1px solid var(--line); }
+.nav-inner { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
+.nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { color: var(--text); }
+.hero { padding: 92px 0 76px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 55px; align-items: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 750; margin-bottom: 18px; }
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+h1 { font-size: clamp(42px, 7vw, 70px); line-height: .98; letter-spacing: -.055em; margin: 0 0 22px; max-width: 720px; }
+.hero h1 span { color: var(--accent); }
+.lead { font-size: 19px; color: var(--muted); max-width: 680px; margin: 0 0 28px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 17px; border-radius: 12px; border: 1px solid var(--line); text-decoration: none; font-weight: 750; font-size: 14px; }
+.btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.hero-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+.hero-card .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; }
+.hero-card h2 { margin: 7px 0 20px; font-size: 24px; letter-spacing: -.03em; }
+.stat { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); }
+.icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--accent-soft); color: var(--accent); font-weight: 850; }
+.stat strong { display: block; font-size: 14px; }
+.stat small { color: var(--muted); }
+section { padding: 76px 0; }
+.section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 30px; }
+.kicker { color: var(--accent); font-size: 12px; font-weight: 850; text-transform: uppercase; letter-spacing: .13em; }
+h2.section-title { font-size: clamp(30px, 4vw, 44px); line-height: 1.05; letter-spacing: -.045em; margin: 7px 0 0; }
+.section-intro { color: var(--muted); max-width: 540px; margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+.card h3 { margin: 0 0 9px; font-size: 18px; letter-spacing: -.02em; }
+.card p { margin: 0; color: var(--muted); font-size: 14px; }
+.certificate-card { display: flex; flex-direction: column; gap: 14px; }
+.certificate-card .btn { margin-top: auto; align-self: flex-start; }
+.experience { display: grid; gap: 16px; }
+.role { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; display: grid; grid-template-columns: 220px 1fr; gap: 25px; }
+.role-meta { color: var(--muted); font-size: 14px; }
+.role-meta strong { color: var(--text); display: block; font-size: 16px; margin-bottom: 4px; }
+.role h3 { margin: 0 0 10px; font-size: 20px; }
+ul { margin: 0; padding-left: 20px; color: var(--muted); }
+li { margin: 6px 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 9px; }
+.tag { background: var(--surface-2); color: var(--text); border: 1px solid var(--line); padding: 8px 11px; border-radius: 999px; font-size: 13px; }
+.highlight { background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line)); border-radius: 24px; padding: 32px; }
+.highlight h3 { font-size: 24px; margin: 0 0 9px; }
+.highlight p { color: var(--muted); max-width: 850px; margin: 0; }
+.contact { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; }
+.contact-options { position: relative; }
+.contact-options summary { list-style: none; cursor: pointer; }
+.contact-options summary::-webkit-details-marker { display: none; }
+.contact-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 5; min-width: 190px; display: grid; gap: 4px; padding: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+.contact-menu a { display: block; padding: 10px 12px; border-radius: 8px; text-decoration: none; font-size: 14px; }
+.contact-menu a:hover { background: var(--surface-2); }
+.contact-menu button { width: 100%; text-align: left; border: 0; background: transparent; color: var(--text); cursor: pointer; font: inherit; display: block; padding: 10px 12px; border-radius: 8px; font-size: 14px; }
+.contact-menu button:hover { background: var(--surface-2); }
+.workflow-page { border-top: 1px solid var(--line); }
+.workflow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
+.workflow-step { padding: 14px; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; font-weight: 750; font-size: 14px; }
+.workflow-step span { display: block; color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.workflow-block { margin-top: 18px; }
+.workflow-block h3 { margin: 0 0 12px; font-size: 22px; }
+.workflow-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.workflow-note { margin-top: 18px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; color: var(--muted); font-size: 14px; }
+footer { padding: 35px 0 55px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; padding-top: 65px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .role { grid-template-columns: 1fr; gap: 12px; }
+  .contact { grid-template-columns: 1fr; }
+  .workflow-steps { grid-template-columns: 1fr 1fr; }
+  .workflow-columns { grid-template-columns: 1fr; }
+  .contact-menu { left: 0; right: auto; }
+  .nav-links { display: none; }
+}
+@media (max-width: 560px) {
+  .container { width: min(100% - 28px, 1080px); }
+  .grid { grid-template-columns: 1fr; }
+  section { padding: 58px 0; }
+  .hero { padding-bottom: 55px; }
+}
+</style>
+</head>
+<body>
+<div class="root">
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#top">Kenn</a>
+    <div class="nav-links">
+      <a href="#expertise">Expertise</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#workflow">Workflow Sample</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+<main id="top">
+  <div class="container hero">
+    <div>
+      <div class="eyebrow">Healthcare Insurance & Virtual Assistant</div>
+      <h1>Reliable support for <span>healthcare operations</span>.</h1>
+      <p class="lead">Healthcare operations and quality professional with 7+ years of experience supporting patients, healthcare providers, and plan sponsors through medical and dental benefits administration, eligibility and coverage verification, claims support, documentation, compliance, quality auditing, reporting, and process improvement.</p>
+      <div class="actions">
+        <a class="btn primary" href="#experience">View Experience</a>
+        <a class="btn" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="label">What I bring</div>
+      <h2>Accuracy, empathy & process discipline.</h2>
+      <div class="stat"><div class="icon">01</div><div><strong>Insurance expertise</strong><small>Benefits, eligibility, claims and EOBs</small></div></div>
+      <div class="stat"><div class="icon">02</div><div><strong>Healthcare support</strong><small>Member, provider and plan support</small></div></div>
+      <div class="stat"><div class="icon">03</div><div><strong>Quality mindset</strong><small>Accuracy, compliance and documentation</small></div></div>
+    </aside>
+  </div>
+
+  <section id="expertise">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Core expertise</div><h2 class="section-title">Healthcare insurance, claims & support</h2></div><p class="section-intro">A practical background built around accurate benefit interpretation, claims support, documentation and clear communication.</p></div>
+      <div class="grid">
+        <div class="card"><h3>Benefits & Eligibility</h3><p>Eligibility verification, coverage review, benefit breakdowns, enrollment, premiums and plan provisions.</p></div>
+        <div class="card"><h3>Claims & EOBs</h3><p>Claims processing and explanation, EOB review, coverage-based review and follow-up on pending or unpaid claims.</p></div>
+        <div class="card"><h3>Medical & Dental Insurance</h3><p>Canadian medical and dental benefits, including basic, major and orthodontic coverage, VOB and claims support.</p></div>
+        <div class="card"><h3>Prior Authorization</h3><p>Medication PA support, forms, provider coordination, clinical documentation and communication of coverage results.</p></div>
+        <div class="card"><h3>Provider & Member Support</h3><p>Phone, email and chat correspondence with members, providers, plan administrators and advisors, plus case follow-ups and documentation coordination.</p></div>
+        <div class="card"><h3>Quality Assurance</h3><p>Interaction review, accuracy and compliance checks, trend identification, feedback and process improvement support.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Professional experience</div><h2 class="section-title">Experience that transfers to remote healthcare work</h2></div></div>
+      <div class="experience">
+        <article class="role"><div class="role-meta"><strong>Manulife</strong>Quality Analyst — Group Insurance<br>Feb 2023 – Nov 2026</div><div><h3>Quality Assurance & Compliance</h3><ul><li>Conducted daily quality audits of customer interactions to assess accuracy, compliance, documentation, and adherence to healthcare insurance procedures.</li><li>Analyzed audit results and error trends, prepared performance reports, and identified process gaps and opportunities for improvement.</li><li>Provided feedback and coaching recommendations to support representatives, improve service quality, and reduce operational and compliance risks.</li></ul></div></article>
+        <article class="role"><div class="role-meta"><strong>Manulife</strong>Customer Service Professional — Group Insurance<br>Jan 2019 – Jan 2023</div><div><h3>Medical & Dental Benefits Support</h3><ul><li>Handled member and healthcare provider inquiries regarding medical and dental benefits, eligibility, coverage, claims status, and benefit payments.</li><li>Reviewed insurance plan provisions, explained claim outcomes and EOB details, verified coverage, and assisted with prior authorization requests and required documentation.</li><li>Documented customer interactions, coordinated follow-ups, and protected confidential member and health information while ensuring accurate and timely support.</li></ul></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Certifications</div><h2 class="section-title">Training & professional development</h2></div><p class="section-intro">Additional training supporting healthcare, virtual assistance and digital workflows.</p></div>
+      <div class="grid">
+        <article class="card certificate-card"><div><h3>HIPAA Compliance Training Program</h3><p>HIPAA Training.US · August 2026</p></div></article>
+        <article class="card certificate-card"><div><h3>General Virtual Assistant Course</h3><p>VirtualWorkPH · June 2022</p></div></article>
+        <article class="card certificate-card"><div><h3>Virtual Executive Assistant Course</h3><p>VirtualWorkPH · June 2022</p></div></article>
+        <article class="card certificate-card"><div><h3>Social Media Management Course</h3><p>VirtualWorkPH · June 2022</p></div></article>
+        <article class="card certificate-card"><div><h3>Basic WordPress Course</h3><p>VirtualWorkPH · June 2022</p></div></article>
+        <article class="card certificate-card"><div><h3>Dental Training Program</h3><p>Manulife · February 2019</p></div></article>
+        <article class="card certificate-card"><div><h3>Health Training Program</h3><p>Manulife · July 2019</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Tools & systems</div><h2 class="section-title">Comfortable with remote workflows</h2></div></div>
+        <div class="highlight">
+        <div class="tags">
+          <span class="tag">Internal EMR/EHR Systems</span><span class="tag">CRM Systems</span><span class="tag">Salesforce</span><span class="tag">ServiceNow</span><span class="tag">Jira</span><span class="tag">Amazon Connect</span><span class="tag">Quality Monitoring Systems</span><span class="tag">Power BI</span><span class="tag">Power Automate</span><span class="tag">Power Apps</span><span class="tag">MS Excel</span><span class="tag">MS Word</span><span class="tag">MS Teams & Outlook</span><span class="tag">SharePoint</span><span class="tag">Google Workspace</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow" class="workflow-page">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Work sample · Dedicated page</div><h2 class="section-title">Front-Office Insurance & Billing Workflow</h2></div><p class="section-intro">A sample end-to-end process for a medical or dental practice, from verifying coverage to billing the patient.</p></div>
+      <div class="workflow-steps"><div class="workflow-step"><span>Step 1</span>Verify Insurance</div><div class="workflow-step"><span>Step 2</span>Manage Appointments</div><div class="workflow-step"><span>Step 3</span>Submit Claim</div><div class="workflow-step"><span>Step 4</span>Bill Patient</div></div>
+      <article class="card workflow-block"><h3>1. Verify Insurance <span class="role-meta">· Before the visit</span></h3><div class="workflow-columns"><ul><li>Collect the patient's name, date of birth, insurance card (front and back), and subscriber details if different.</li><li>Check eligibility through the payer portal or by phone.</li><li>Confirm active coverage on the date of service and identify the plan type.</li><li>Record deductible and amount met, annual maximum and amount used, coverage percentage by service category, copays, frequency limits, and waiting periods.</li></ul><ul><li>Check prior authorization requirements for planned procedures.</li><li>Estimate expected insurance payment and the patient's portion.</li><li>Document the date, method, representative name, and reference number in the patient record.</li><li>Flag inactive coverage, limits, or an expected balance early, before the visit.</li></ul></div></article>
+      <article class="card workflow-block"><h3>2. Schedule, Reschedule & Cancel Appointments <span class="role-meta">· Calendar management</span></h3><div class="workflow-columns"><div><h4>Schedule</h4><ul><li>Confirm patient identity and reason for visit.</li><li>Match the procedure to the appointment length and provider.</li><li>Check the calendar and book the slot.</li><li>Confirm insurance verification is complete.</li><li>Send confirmation and set reminders.</li></ul></div><div><h4>Reschedule</h4><ul><li>Locate the existing appointment and offer available times with the same provider.</li><li>Update the calendar and release the old slot.</li><li>Send an updated confirmation.</li><li>Check that the change does not affect authorization or benefits timing.</li></ul><h4>Cancel</h4><ul><li>Confirm identity and appointment; record the reason.</li><li>Check the cancellation policy and notice period.</li><li>Free the slot and offer it to the waitlist.</li><li>Offer to rebook before ending the call.</li></ul></div></div></article>
+      <article class="card workflow-block"><h3>3. Submit a Claim <span class="role-meta">· After the visit</span></h3><div class="workflow-columns"><ul><li>Confirm treatment is complete and documented in the visit notes.</li><li>Match services to the correct procedure and diagnosis codes (for example, CDT for dental, CPT and ICD-10 for medical).</li><li>Compare the claim against verified coverage, limits, and frequency rules.</li><li>Attach supporting documents such as x-rays, clinical notes, narratives, or prior authorization numbers.</li></ul><ul><li>Check patient and subscriber information, provider IDs, payer ID, dates, and amounts.</li><li>Submit electronically through the payer portal or clearinghouse, and save the confirmation.</li><li>Track pending claims within the payer's expected processing time.</li><li>Correct and resubmit rejections, or start an appeal for denials.</li></ul></div></article>
+      <article class="card workflow-block"><h3>4. Bill the Patient <span class="role-meta">· After the payer responds</span></h3><div class="workflow-columns"><ul><li>Review the EOB or remittance when the payer responds.</li><li>Post payments and adjustments accurately to the patient account.</li><li>Calculate the patient portion: deductible, coinsurance, copay, and non-covered services.</li><li>Confirm the amount matches the EOB and the verified estimate before billing.</li></ul><ul><li>Send a clear statement explaining charges and insurance payments in plain language.</li><li>Offer payment options, including payment plans, according to practice policy.</li><li>Record payments and follow up on unpaid balances on a set schedule.</li><li>Refund overpayments and correct account errors.</li></ul></div></article>
+      <div class="workflow-note"><strong>Quality & compliance throughout:</strong> Double-check codes, dates, and amounts; share information only with verified, authorized parties; keep documentation clear enough for another team member to continue the work; and track open items until resolved.<br><br>This is a general illustration of a common workflow. It contains no employer-specific procedures, systems, patient data, or confidential information. Actual processes vary by practice, payer, and plan.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="highlight">
+        <h3>Why work with me?</h3>
+        <p>I bring a combination of healthcare insurance knowledge, customer service experience and quality assurance discipline. I am comfortable learning client-specific systems and workflows, handling confidential information, following detailed processes, and communicating clearly with members, providers and internal teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="highlight contact">
+        <div><div class="kicker">Let's connect</div><h2 class="section-title">Open to healthcare, insurance & VA opportunities.</h2><p class="section-intro">Based in the Philippines and available for remote opportunities aligned with my experience.</p></div>
+        <details class="contact-options"><summary class="btn primary">Contact Me ▾</summary><div class="contact-menu"><a href="mailto:kennlmaangue@gmail.com">Default email</a><a href="https://outlook.office.com/mail/deeplink/compose?to=kennlmaangue%40gmail.com" target="_blank" rel="noopener noreferrer">Outlook</a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=kennlmaangue%40gmail.com" target="_blank" rel="noopener noreferrer">Gmail</a><a href="https://mail.yahoo.com/d/compose?to=kennlmaangue%40gmail.com" target="_blank" rel="noopener noreferrer">Yahoo Mail</a><button type="button" id="copy-email">Copy email address</button><span id="copy-status" aria-live="polite" style="padding:0 12px;font-size:12px;color:var(--muted)"></span></div></details>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="container">© 2026 Kenn · Healthcare Insurance & Virtual Assistant</div></footer>
+</div>
+<script>
+const copyEmailButton = document.getElementById('copy-email');
+const copyStatus = document.getElementById('copy-status');
+if (copyEmailButton) {
+  copyEmailButton.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('kennlmaangue@gmail.com');
+      copyStatus.textContent = 'Email address copied.';
+    } catch (error) {
+      copyStatus.textContent = 'Copy unavailable here. Email: kennlmaangue@gmail.com';
+    }
+  });
+}
+</script>
+</body>
+</html>
