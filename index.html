@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kenn | Healthcare Insurance & Virtual Assistant</title>
+<meta name="description" content="Kenn Maangue: medical and dental virtual assistant and quality analyst. Medical and dental benefits, claims, prior authorization, and QA support.">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Kenn Maangue | Medical and Dental Virtual Assistant</title>
 <style>
 :root {
   color-scheme: light dark;
@@ -102,38 +104,66 @@ footer { padding: 35px 0 55px; color: var(--muted); font-size: 13px; border-top:
   section { padding: 58px 0; }
   .hero { padding-bottom: 55px; }
 }
+html[data-theme=light]{color-scheme:light}
+html[data-theme=dark]{color-scheme:dark}
+button.btn{font:inherit;font-weight:750;font-size:14px;background:var(--surface);color:var(--text);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.theme-toggle{border:1px solid var(--line);background:var(--surface);color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:16px}
+.theme-toggle:hover{border-color:var(--accent)}
+.nav-links a{padding:4px 0;border-bottom:2px solid transparent}
+.nav-links a.active{color:var(--text);border-color:var(--accent)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.workflow-step{cursor:pointer;text-align:left;font:inherit;font-weight:750;font-size:14px;color:var(--text);transition:border-color .2s,background .2s}
+.workflow-step:hover{border-color:var(--accent)}
+.workflow-step.active{border-color:var(--accent);background:var(--accent-soft)}
+.workflow-hint{color:var(--muted);font-size:13px;margin:0 0 10px}
+.progress{height:4px;background:var(--line);border-radius:4px;margin-bottom:18px;overflow:hidden}
+.progress i{display:block;height:100%;width:25%;background:var(--accent);transition:width .35s ease}
+.workflow-block[hidden]{display:none}
+.workflow-block li{cursor:pointer}
+.workflow-block li.done{text-decoration:line-through;opacity:.55}
+.workflow-nav{display:flex;justify-content:space-between;margin-top:16px}
+.workflow-nav .btn[disabled]{opacity:.4;cursor:default}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:.3s;z-index:20}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+.btn.primary,button.btn.primary{color:light-dark(#fff,#0b1413)}
 </style>
 </head>
 <body>
 <div class="root">
 <nav>
   <div class="container nav-inner">
-    <a class="brand" href="#top">Kenn</a>
+    <a class="brand" href="#top">Kenn Maangue</a>
     <div class="nav-links">
       <a href="#expertise">Expertise</a>
       <a href="#experience">Experience</a>
       <a href="#certifications">Certifications</a>
-      <a href="#workflow">Workflow Sample</a>
       <a href="#tools">Tools</a>
+      <a href="#workflow">Workflow Sample</a>
       <a href="#contact">Contact</a>
     </div>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark mode"></button>
   </div>
 </nav>
 <main id="top">
   <div class="container hero">
     <div>
-      <div class="eyebrow">Healthcare Insurance & Virtual Assistant</div>
+      <div class="eyebrow">Medical and Dental Virtual Assistant</div>
       <h1>Reliable support for <span>healthcare operations</span>.</h1>
-      <p class="lead">Healthcare operations and quality professional with 7+ years of experience supporting patients, healthcare providers, and plan sponsors through medical and dental benefits administration, eligibility and coverage verification, claims support, documentation, compliance, quality auditing, reporting, and process improvement.</p>
+      <p class="lead">Healthcare operations and quality professional with 7+ years of experience supporting patients and healthcare providers through medical and dental benefits administration, eligibility and coverage verification, claims support, documentation, compliance, quality auditing, reporting, and process improvement.</p>
       <div class="actions">
         <a class="btn primary" href="#experience">View Experience</a>
         <a class="btn" href="#contact">Get in Touch</a>
+        <a class="btn" href="Kenn_Maangue_CV.pdf" download>Download CV</a>
+        <button type="button" class="btn" data-copy>Copy email</button>
       </div>
     </div>
     <aside class="hero-card">
       <div class="label">What I bring</div>
       <h2>Accuracy, empathy & process discipline.</h2>
-      <div class="stat"><div class="icon">01</div><div><strong>Insurance expertise</strong><small>Benefits, eligibility, claims and EOBs</small></div></div>
+      <div class="stat"><div class="icon">01</div><div><strong>Insurance expertise</strong><small>Coverage, Eligibility, Prior Authorization, Claims, EOBs, Appeals</small></div></div>
       <div class="stat"><div class="icon">02</div><div><strong>Healthcare support</strong><small>Member, provider and plan support</small></div></div>
       <div class="stat"><div class="icon">03</div><div><strong>Quality mindset</strong><small>Accuracy, compliance and documentation</small></div></div>
     </aside>
@@ -145,9 +175,9 @@ footer { padding: 35px 0 55px; color: var(--muted); font-size: 13px; border-top:
       <div class="grid">
         <div class="card"><h3>Benefits & Eligibility</h3><p>Eligibility verification, coverage review, benefit breakdowns, enrollment, premiums and plan provisions.</p></div>
         <div class="card"><h3>Claims & EOBs</h3><p>Claims processing and explanation, EOB review, coverage-based review and follow-up on pending or unpaid claims.</p></div>
-        <div class="card"><h3>Medical & Dental Insurance</h3><p>Canadian medical and dental benefits, including basic, major and orthodontic coverage, VOB and claims support.</p></div>
-        <div class="card"><h3>Prior Authorization</h3><p>Medication PA support, forms, provider coordination, clinical documentation and communication of coverage results.</p></div>
-        <div class="card"><h3>Provider & Member Support</h3><p>Phone, email and chat correspondence with members, providers, plan administrators and advisors, plus case follow-ups and documentation coordination.</p></div>
+        <div class="card"><h3>Medical & Dental Insurance</h3><p>Medical and dental benefits, including basic, major and orthodontic coverage, VOB and claims support.</p></div>
+        <div class="card"><h3>Prior Authorization</h3><p>Prior authorization (PA) support, forms, provider coordination, clinical documentation and communication of coverage results.</p></div>
+        <div class="card"><h3>Provider & Member Support</h3><p>Phone, email and chat correspondence with members and providers, plus case follow-ups and documentation coordination.</p></div>
         <div class="card"><h3>Quality Assurance</h3><p>Interaction review, accuracy and compliance checks, trend identification, feedback and process improvement support.</p></div>
       </div>
     </div>
@@ -191,8 +221,8 @@ footer { padding: 35px 0 55px; color: var(--muted); font-size: 13px; border-top:
 
   <section id="workflow" class="workflow-page">
     <div class="container">
-      <div class="section-head"><div><div class="kicker">Work sample · Dedicated page</div><h2 class="section-title">Front-Office Insurance & Billing Workflow</h2></div><p class="section-intro">A sample end-to-end process for a medical or dental practice, from verifying coverage to billing the patient.</p></div>
-      <div class="workflow-steps"><div class="workflow-step"><span>Step 1</span>Verify Insurance</div><div class="workflow-step"><span>Step 2</span>Manage Appointments</div><div class="workflow-step"><span>Step 3</span>Submit Claim</div><div class="workflow-step"><span>Step 4</span>Bill Patient</div></div>
+      <div class="section-head"><div><div class="kicker">Work sample</div><h2 class="section-title">Front-Office Insurance & Billing Workflow</h2></div><p class="section-intro">A sample end-to-end process for a medical or dental practice, from verifying coverage to billing the patient.</p></div>
+      <div class="workflow-steps"><button type="button" class="workflow-step"><span>Step 1</span>Verify Insurance</button><button type="button" class="workflow-step"><span>Step 2</span>Manage Appointments</button><button type="button" class="workflow-step"><span>Step 3</span>Submit Claim</button><button type="button" class="workflow-step"><span>Step 4</span>Bill Patient</button></div>
       <article class="card workflow-block"><h3>1. Verify Insurance <span class="role-meta">· Before the visit</span></h3><div class="workflow-columns"><ul><li>Collect the patient's name, date of birth, insurance card (front and back), and subscriber details if different.</li><li>Check eligibility through the payer portal or by phone.</li><li>Confirm active coverage on the date of service and identify the plan type.</li><li>Record deductible and amount met, annual maximum and amount used, coverage percentage by service category, copays, frequency limits, and waiting periods.</li></ul><ul><li>Check prior authorization requirements for planned procedures.</li><li>Estimate expected insurance payment and the patient's portion.</li><li>Document the date, method, representative name, and reference number in the patient record.</li><li>Flag inactive coverage, limits, or an expected balance early, before the visit.</li></ul></div></article>
       <article class="card workflow-block"><h3>2. Schedule, Reschedule & Cancel Appointments <span class="role-meta">· Calendar management</span></h3><div class="workflow-columns"><div><h4>Schedule</h4><ul><li>Confirm patient identity and reason for visit.</li><li>Match the procedure to the appointment length and provider.</li><li>Check the calendar and book the slot.</li><li>Confirm insurance verification is complete.</li><li>Send confirmation and set reminders.</li></ul></div><div><h4>Reschedule</h4><ul><li>Locate the existing appointment and offer available times with the same provider.</li><li>Update the calendar and release the old slot.</li><li>Send an updated confirmation.</li><li>Check that the change does not affect authorization or benefits timing.</li></ul><h4>Cancel</h4><ul><li>Confirm identity and appointment; record the reason.</li><li>Check the cancellation policy and notice period.</li><li>Free the slot and offer it to the waitlist.</li><li>Offer to rebook before ending the call.</li></ul></div></div></article>
       <article class="card workflow-block"><h3>3. Submit a Claim <span class="role-meta">· After the visit</span></h3><div class="workflow-columns"><ul><li>Confirm treatment is complete and documented in the visit notes.</li><li>Match services to the correct procedure and diagnosis codes (for example, CDT for dental, CPT and ICD-10 for medical).</li><li>Compare the claim against verified coverage, limits, and frequency rules.</li><li>Attach supporting documents such as x-rays, clinical notes, narratives, or prior authorization numbers.</li></ul><ul><li>Check patient and subscriber information, provider IDs, payer ID, dates, and amounts.</li><li>Submit electronically through the payer portal or clearinghouse, and save the confirmation.</li><li>Track pending claims within the payer's expected processing time.</li><li>Correct and resubmit rejections, or start an appeal for denials.</li></ul></div></article>
@@ -219,20 +249,28 @@ footer { padding: 35px 0 55px; color: var(--muted); font-size: 13px; border-top:
     </div>
   </section>
 </main>
-<footer><div class="container">© 2026 Kenn · Healthcare Insurance & Virtual Assistant</div></footer>
+<footer><div class="container">© 2026 Kenn Maangue · Medical and Dental Virtual Assistant</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 </div>
 <script>
-const copyEmailButton = document.getElementById('copy-email');
-const copyStatus = document.getElementById('copy-status');
-if (copyEmailButton) {
-  copyEmailButton.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText('kennlmaangue@gmail.com');
-      copyStatus.textContent = 'Email address copied.';
-    } catch (error) {
-      copyStatus.textContent = 'Copy unavailable here. Email: kennlmaangue@gmail.com';
-    }
-  });
+const $=(q,r=document)=>r.querySelector(q),$$=(q,r=document)=>[...r.querySelectorAll(q)];
+const root=document.documentElement,toggle=$('#theme-toggle'),dark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+const icon=()=>{toggle.textContent=dark()?'\u2600':'\u263E'};icon();
+toggle.addEventListener('click',()=>{const t=dark()?'light':'dark';root.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}icon()});
+const toast=$('#toast');let tt;const say=m=>{toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2200)};
+$$('#copy-email,[data-copy]').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('kennlmaangue@gmail.com');say('Email address copied')}catch(e){say('Email: kennlmaangue@gmail.com')}}));
+const els=$$('.card,.role,.highlight,.section-head,.hero-card,.workflow-step,.workflow-note');els.forEach(e=>e.classList.add('reveal'));
+const io=new IntersectionObserver((en)=>en.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});els.forEach(e=>io.observe(e));
+const links=$$('.nav-links a'),secs=$$('section[id]');
+const so=new IntersectionObserver((en)=>en.forEach(x=>{if(x.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+x.target.id))}),{rootMargin:'-45% 0px -50% 0px'});secs.forEach(e=>so.observe(e));
+const steps=$$('.workflow-step'),blocks=$$('article.workflow-block'),wrap=$('.workflow-steps');
+if(wrap&&steps.length===blocks.length){
+  wrap.insertAdjacentHTML('beforebegin','<p class="workflow-hint">Click a step to explore it, and tap any item to tick it off as you go.</p><div class="progress"><i></i></div>');
+  const bar=$('.progress i');
+  const show=i=>{steps.forEach((s,k)=>{s.classList.toggle('active',k===i);s.setAttribute('aria-pressed',k===i)});blocks.forEach((b,k)=>b.hidden=k!==i);bar.style.width=(i+1)*25+'%'};
+  steps.forEach((s,i)=>s.addEventListener('click',()=>show(i)));
+  blocks.forEach(b=>b.addEventListener('click',e=>{const li=e.target.closest('li');if(li)li.classList.toggle('done')}));
+  show(0);
 }
 </script>
 </body>
